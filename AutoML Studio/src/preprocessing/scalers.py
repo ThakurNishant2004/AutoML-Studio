@@ -15,10 +15,10 @@ class MyStandardScaler :
             )
         if is_numpy:
             self.mean = X.mean(axis=0)
-            self.std = X.std(axis=0)
+            self.std = X.std(axis=0,ddof=0)
         else :
             self.mean = X.mean()
-            self.std = X.std()
+            self.std = X.std(ddof=0)
         return self 
     def transform(self,X):
         if self.mean is None or self.std is None:
